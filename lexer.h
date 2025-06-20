@@ -123,6 +123,8 @@ int token_collect(const char *lex , int precedence , int (*operation)(Token*)) {
 
 }
 
+
+/* includes must be recursive , fix that */
 int tigerc_include_all_files(FILE *file , char **other) {
 		
 	source = malloc(2097152); /* allocate 2mb for all source files */
@@ -170,53 +172,53 @@ int tigerc_all_tokens() {
 	k = 0;
 	
 	while(k < 8192 && source[i]) {
-		token_collect("##",0,NULL);
-		token_collect("define",0,NULL);
-		token_collect("ifdef",0,NULL);
-		token_collect("ifndef",0,NULL);
-		token_collect("endif",0,NULL);
-		token_collect("elif",0,NULL);
-		token_collect("typedef",0,NULL);
-		token_collect("static",0,NULL);
-		token_collect("extern",0,NULL);
-		token_collect("struct",0,NULL);
-		token_collect("enum",0,NULL);
-		token_collect("union",0,NULL);
-		token_collect("int",0,NULL);
-		token_collect("char",0,NULL);
-		token_collect("void",0,NULL);
-		token_collect("float",0,NULL);
-		token_collect("double",0,NULL);
-		token_collect("long double",0,NULL);
-		token_collect("short",0,NULL);
-		token_collect("const",0,NULL);
-		token_collect("volatile",0,NULL);
-		token_collect("inline",0,NULL);
-		token_collect("break",0,NULL);
-		token_collect("continue",0,NULL);
-		token_collect("return",0,NULL);
-		token_collect("goto",0,NULL);
-		token_collect("if",0,NULL);
-		token_collect("else",0,NULL);
-		token_collect("else if",0,NULL);
-		token_collect("while",0,NULL);
-		token_collect("do",0,NULL);
-		token_collect("for",0,NULL);
-		token_collect("switch",0,NULL);
-		token_collect("case",0,NULL);
-		token_collect("default",0,NULL);
-		token_collect("auto",0,NULL);
-		token_collect("register",0,NULL);
-		token_collect("signed",0,NULL);
-		token_collect("unsigned",0,NULL);
-		token_collect("ull",61,NULL);
-		token_collect("ul",60,NULL);
-		token_collect("f",59,NULL);
-		token_collect("u",58,NULL);
-		token_collect("L",57,NULL);
-		token_collect("0x",56,NULL);
-		token_collect("0b",55,NULL);
-		token_collect("0o",54,NULL);
+		token_collect("##",200,NULL);
+		token_collect("define",199,NULL);
+		token_collect("ifdef",198,NULL);
+		token_collect("ifndef",197,NULL);
+		token_collect("endif",196,NULL);
+		token_collect("elif",195,NULL);
+		token_collect("typedef",194,NULL);
+		token_collect("static",193,NULL);
+		token_collect("extern",192,NULL);
+		token_collect("struct",191,NULL);
+		token_collect("enum",190,NULL);
+		token_collect("union",189,NULL);
+		token_collect("int",188,NULL);
+		token_collect("char",187,NULL);
+		token_collect("void",186,NULL);
+		token_collect("float",185,NULL);
+		token_collect("double",184,NULL);
+		token_collect("long double",183,NULL);
+		token_collect("short",182,NULL);
+		token_collect("const",181,NULL);
+		token_collect("volatile",180,NULL);
+		token_collect("inline",179,NULL);
+		token_collect("break",178,NULL);
+		token_collect("continue",177,NULL);
+		token_collect("return",176,NULL);
+		token_collect("goto",175,NULL);
+		token_collect("if",174,NULL);
+		token_collect("else",173,NULL);
+		// token_collect("else if",0,NULL);
+		token_collect("while",172,NULL);
+		token_collect("do",171,NULL);
+		token_collect("for",170,NULL);
+		token_collect("switch",169,NULL);
+		token_collect("case",168,NULL);
+		token_collect("default",167,NULL);
+		token_collect("auto",166,NULL);
+		token_collect("register",165,NULL);
+		token_collect("signed",164,NULL);
+		token_collect("unsigned",163,NULL);
+		token_collect("ull",162,NULL);
+		token_collect("ul",161,NULL);
+		token_collect("f",160,NULL);
+		token_collect("u",159,NULL);
+		token_collect("L",158,NULL);
+		token_collect("0x",157,NULL);
+		token_collect("0b",156,NULL);
+		token_collect("0o",155,NULL);
 		token_collect(".",53,NULL);
 		token_collect("->",52,NULL);
 		token_collect("[",51,NULL);
